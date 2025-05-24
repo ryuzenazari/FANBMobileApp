@@ -40,3 +40,110 @@
 .read-the-docs {
   color: #888;
 }
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(79, 107, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(79, 107, 255, 0);
+  }
+}
+
+.animate-ripple {
+  animation: ripple 1.5s infinite;
+}
+
+/* Glassmorphism classes */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Flash highlight animation */
+@keyframes flash-highlight {
+  0% { background-color: transparent; }
+  50% { background-color: rgba(79, 107, 255, 0.1); }
+  100% { background-color: transparent; }
+}
+
+.flash-highlight {
+  animation: flash-highlight 0.5s ease-out;
+}
+
+/* Micro-interactions */
+.hoverable {
+  transition: all 0.2s ease;
+}
+
+.hoverable:hover {
+  transform: translateY(-2px);
+}
+
+.clickable {
+  transition: all 0.1s ease;
+}
+
+.clickable:active {
+  transform: scale(0.97);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(79, 107, 255, 0.5);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(79, 107, 255, 0.7);
+}
+
+/* Gradient text */
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(90deg, #4f6bff, #00e676);
+}
+
+/* Add support for backdrop-blur in Firefox */
+@supports not (backdrop-filter: blur(10px)) {
+  .glass {
+    background: rgba(255, 255, 255, 0.8);
+  }
+  
+  .dark .glass {
+    background: rgba(17, 24, 39, 0.8);
+  }
+}
